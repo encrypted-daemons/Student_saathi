@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- GLOBAL RESETS --- */
+body {
+  margin: 0;
+  font-family: 'Outfit', 'Segoe UI', sans-serif;
+  background-color: #f8fafc;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Mobile Tap Highlight Removal */
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* --- HIDE SCROLLBAR (Clean Look) --- */
+/* Chrome, Safari, Edge */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+/* Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* --- CUSTOM SCROLLBAR (For Desktop) --- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* --- MOBILE OPTIMIZATIONS --- */
+@media (max-width: 640px) {
+  /* Prevent text selection on app-like elements */
+  .no-select {
+    user-select: none;
+  }
+  
+  /* Safe Area for Notch Phones (iPhone X+) */
+  .safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* --- ANIMATIONS --- */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+.glass {
+  /* Semi-transparent background */
+  background-color: rgba(255, 255, 255, 0.25);
+
+  /* Backdrop blur */
+  backdrop-filter: blur(10px);           /* Chrome, Edge, Firefox */
+  -webkit-backdrop-filter: blur(10px);   /* Safari & iOS (optional) */
+
+  /* Border for glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  /* Rounded corners */
+  border-radius: 16px;
+
+  /* Shadow for depth */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+
+  /* Smooth hover/transition */
+  transition: all 0.3s ease-in-out;
+
+  /* Optional padding */
+  padding: 1rem;
+}
+
+/* Optional hover effect */
+.glass:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #c7c7cc;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+
+/* ... purana code ... */
+
+/* 👇 LEAFLET MAP FIX (Map ko niche rakho) */
+/* ... upar ka code same ... */
+
+/* FIX: Leaflet Map ko sabse neeche rakho */
+.leaflet-container {
+  z-index: 0 !important;
+  position: relative !important;
+}
+
+/* FIX: Sticky Bottom Bar ko sabse upar rakho */
+.sticky-bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999 !important; /* Sabse upar */
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid #e5e7eb;
+  padding: 1rem;
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Safe Area for Mobile */
+.safe-padding {
+  padding-bottom: 100px; /* Content chipne se bachane ke liye */
+}
