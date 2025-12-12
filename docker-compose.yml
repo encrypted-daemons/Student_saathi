@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  frontend:
+    build:
+      context: ./student-sathi-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./student-sathi-backend
+      dockerfile: Dockerfile
+    environment:
+      - PORT=5000
+      - MONGO_URI=${MONGO_URI}
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
